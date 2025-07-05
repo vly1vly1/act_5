@@ -1,34 +1,69 @@
 <div>
   <h1>Blog de Noticias</h1>
 
-  <!-- Form to add a new news item -->
+  <!-- Formulario para input -->
   <form (ngSubmit)="agregarNoticia()">
     <div>
       <label for="titulo">Título:</label>
-      <input id="titulo" [(ngModel)]="noticia.titulo" name="titulo" placeholder="Título de la noticia" required>
+      <input
+        id="titulo"
+        [(ngModel)]="noticia.titulo"
+        name="titulo"
+        placeholder="Título de la noticia"
+        required
+      />
     </div>
     <div>
       <label for="imagen">URL de la Imagen:</label>
-      <input id="imagen" [(ngModel)]="noticia.imagen" name="imagen" placeholder="URL de la imagen" required>
+      <input
+        id="imagen"
+        [(ngModel)]="noticia.imagen"
+        name="imagen"
+        placeholder="URL de la imagen"
+        required
+      />
     </div>
     <div>
       <label for="cuerpo">Cuerpo:</label>
-      <textarea id="cuerpo" [(ngModel)]="noticia.cuerpo" name="cuerpo" placeholder="Cuerpo de la noticia" required></textarea>
+      <textarea
+        id="cuerpo"
+        [(ngModel)]="noticia.cuerpo"
+        name="cuerpo"
+        placeholder="Cuerpo de la noticia"
+        required
+      ></textarea>
     </div>
     <div>
       <label for="fecha">Fecha:</label>
-      <input id="fecha" type="date" [(ngModel)]="noticia.fecha" name="fecha" required>
+      <input
+        id="fecha"
+        type="date"
+        [(ngModel)]="noticia.fecha"
+        name="fecha"
+        required
+      />
     </div>
-    <button type="submit" [disabled]="!noticia.titulo || !noticia.imagen || !noticia.cuerpo || !noticia.fecha">Agregar Noticia</button>
+    <button
+      type="submit"
+      [disabled]="
+        !noticia.titulo || !noticia.imagen || !noticia.cuerpo || !noticia.fecha
+      "
+    >
+      Agregar Noticia
+    </button>
   </form>
 
-  <!-- Display list of news items -->
+  <hr />
+
+  <h1>Listado de noticias</h1>
+
+  <!-- Renderizado / output -->
   <div class="noticias">
     <div *ngFor="let noticia of arrayNoticiasAgregadas" class="noticia">
       <h2>{{ noticia.titulo }}</h2>
       <img [src]="noticia.imagen" [alt]="noticia.titulo" />
       <p>{{ noticia.cuerpo }}</p>
-      <p><strong>Fecha:</strong> {{ noticia.fecha | date:'shortDate' }}</p>
+      <p><strong>Fecha:</strong> {{ noticia.fecha | date : "shortDate" }}</p>
     </div>
   </div>
 </div>
