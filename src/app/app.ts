@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { BlogComponent } from "./components/blog/blog.component";
+import { BlogComponent } from './components/blog/blog.component';
 import { INoticias } from './interfaces/inoticias';
 
 @Component({
   selector: 'app-root',
   imports: [BlogComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   arrayNoticias: INoticias[] = [
@@ -25,5 +25,4 @@ export class App {
       fecha: new Date('2025-05-07'),
     },
   ];
-
 }
